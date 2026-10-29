@@ -1,0 +1,8 @@
+import { Link, NavLink } from 'react-router-dom';
+import { Waves, Search, ShoppingBag, Menu } from 'lucide-react';
+import { useState } from 'react';
+export function Header({ onSearch }) {
+  const [keyword, setKeyword] = useState('');
+  return <><div className="announcement">OCEAN AQUARIUM · Mang thế giới đại dương về nhà bạn</div><header className="site-header"><Link className="brand" to="/"><span className="brand-icon"><Waves size={25}/></span><span>OCEAN<small>AQUARIUM STORE</small></span></Link><nav className="main-nav"><NavLink to="/">Trang chủ</NavLink><NavLink to="/danh-muc">Danh mục</NavLink><NavLink to="/san-pham">Sản phẩm</NavLink><a href="#footer">Về OCEAN</a></nav><form className="header-search" onSubmit={e => {e.preventDefault(); onSearch(keyword);}}><Search size={17}/><input value={keyword} onChange={e => setKeyword(e.target.value)} placeholder="Tìm loài cá bạn yêu thích..."/><button aria-label="Tìm kiếm">Tìm</button></form><Link className="bag-link" to="/san-pham" aria-label="Xem sản phẩm"><ShoppingBag size={21}/></Link></header></>;
+}
+export function Footer(){return <footer id="footer" className="footer"><div><Link className="brand footer-brand" to="/"><span className="brand-icon"><Waves size={24}/></span><span>OCEAN<small>AQUARIUM STORE</small></span></Link><p>Một góc đại dương bình yên trong không gian của bạn.</p></div><div><b>Khám phá</b><Link to="/san-pham">Tất cả sản phẩm</Link><Link to="/danh-muc">Danh mục cá cảnh</Link></div><div><b>Hỗ trợ</b><span>Hướng dẫn chăm sóc cá</span><span>Liên hệ: hello@ocean.local</span></div><div className="copyright">© 2026 OCEAN Aquarium. Demo phục vụ học tập.</div></footer>}
